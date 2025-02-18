@@ -229,5 +229,19 @@ public class static void main(String[]args){
      }
 
     }
+    //  Ejercicio 14: Calcular la diferencia de elementos sucesivos en un arreglo
+public class Ejercicio14{
+    public static void main(String[]arg);
+    int[]A = { 4,6,8,2,6,9,5,2};
+    int[] B = new int [A.length - 1];
+    for(int i=0; < B.length; i++){
+        B[i]= A[i+1];
+    }
+    System.out.print("Arreglo resultante(diferencias sucesivas):");
+    for(int numero : B){
+        System.out.print(numero + "");
+    }
+
+}
 
 
