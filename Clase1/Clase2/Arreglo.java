@@ -269,5 +269,35 @@ public class Ejercicio15{
         }
     }
 }
+// Ejercicio 16: Informacion de profesores
+public class Ejercicio16{
+    public static void main(String []args){
+        String[]profesores= {"Ana", "Carlos","Marta","Luis"};
+        int[] edades={ 45,30,50,40};
+        int menor= edades [0], mayor= edades[0];
+        String profesorMenor= profesores[0], profesorMayor= profesores[0];
+        int suma= 0;
+        // Recorremos el arreglo de edades para calcular la suma y encontrar el profesor más joven y más viejo
+        for(int i=0; i < edades.length; i++){
+            suma += edades[i];
+            if(edades [i]< menor){ // Si la edad actual es menor que la menor registrada
+                menor= edades[i];
+                profesorMenor = profesores[i];
+            
+            }
+            if(edades [i]> mayor){ 
+                menor= edades[i];
+                profesorMayor = profesores[i];
+            
+            }
+        }
+         // Calculamos el promedio de las edades
+        double promedio = (double)suma/edades.length;
+        System.out.println("Edad promedio: " + promedio);
+        System.out.println("Profesor mas joven: " + profesorMenor + " ("menor + "años)" );
+         System.out.println("Profesor con mayor edad: " + profesorMayor + " ("mayor + "años)" );
+      
+
+}
 
 
