@@ -74,4 +74,18 @@ public class Ejercicio 3 {
         System.out.println("Total gastado: "+ total);
     }
  }
+  //Ejercicio 6: Ganancias por vivienda 
+ public class Ejercicio6{
+    public static void main (String[]args){
+        int[]precio = { 500,700,800 };
+        double[]porcentaje={10,15,12};
+        for(int i=0; i=0; i<precios.length; i++){ //Sirve para recorrer los arreglos para calcular las ganancias 
+            double ganancias= precios[i]*(porcentajes[i]/100);//Calculamos la ganancia para cada vivienda
+
+
+System.out.println(" Ganancias de vivienda" + (i+1)+ " : " + ganancias);
+
+        }
+    }
+ }
 
