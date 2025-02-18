@@ -132,4 +132,21 @@ System.out.println(" Ganancias de vivienda" + (i+1)+ " : " + ganancias);
         System.out.println("Menor: "+ menor + " (se repite" + repeticionesMenor + " veces")");
     }
  }
+ // Ejercicio 9:Contar ocurrencias de un numero
+ public class Ejercicio9{
+    public static void main(String[]args){
+        int[]arreglo = {4,6,8,2,6,9,6,2};
+        //Numero que queremos contar 
+        int incognita= 6;
+        //Variable para contar las ocurrencias 
+        int contar = 0;
+        // Recorremos cadas numero en el arreglo
+        for(int numero : arreglo){
+            if(numero== incognita){
+                contar++;
+            }
+        }
+        System.out.println("El numero " + incognita + " aparece" + contar + " veces. ");
+    }
+ }
 
