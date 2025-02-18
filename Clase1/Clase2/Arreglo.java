@@ -101,4 +101,35 @@ System.out.println(" Ganancias de vivienda" + (i+1)+ " : " + ganancias);
         }
     }
  }
+ // Ejercicio 8: Mayor, menor y repeticiones
+ public class Ejercicio8{
+    public static void main (String[]args){
+        int[] numero = {5,1,2,5,3,1,5}
+        //Inicializamos las variables para el mayor, menor y sus repeticiones
+        int mayor= numeor [0];
+        int menor = numero[0];
+        int repeticionesMayor=0;
+        int repeticionesMenor = 011,
+        //Encontramos el mayor y el menor numero del arreglo
+        for(int numero: numero){
+            if(numero > mayor){
+                mayor=numero;
+            }
+            if(numero < menor){
+                menor = numero;
+            }
+        }
+        //Contamos las repeticiones del mayor y del menor
+        for(int numero : numero){
+            if(numero==mayor){
+                repeticionesMayor++;
+            }
+            if(numero == menor){
+                repeticionesMenor++;
+            }
+        }
+        System.out.println("Mayor: "+ mayor + " (se repite" + repeticionesMayor + " veces")");
+        System.out.println("Menor: "+ menor + " (se repite" + repeticionesMenor + " veces")");
+    }
+ }
 
