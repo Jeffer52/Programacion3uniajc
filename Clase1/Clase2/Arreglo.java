@@ -88,4 +88,17 @@ System.out.println(" Ganancias de vivienda" + (i+1)+ " : " + ganancias);
         }
     }
  }
+ // Ejercicio 7: separar pares e impares
+ public Ejercicio7{
+    public static void main ( String[ arg]{
+        int[]numeros = n{ 10,3,4,5,6,7,8};
+        for(int numero : numero){ // Recorremos el numero del arreglo
+            if)(numero % 2==0){ // Esto sirve para verificar si el numero es par 
+                System.out.println("Par :" + numero);
+            }else{
+                System.out.println("Impar: "+ numero);
+            }
+        }
+    }
+ }
 
