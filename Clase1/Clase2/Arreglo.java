@@ -246,13 +246,13 @@ public class Ejercicio14{
 //Ejercicio 15: Encontrar el trabajor con el sueldo mas cercano al promedio
 public class Ejercicio15{
     public static void main(String[]args){
-        String[] nombres = { "Messi", "Ronaldo", "Neymar", "Petro"};
-        int[] sueldos= { 1000, 1200,1100,1300};
+        String[] nombres = { "Messi", "Ronaldo", "Neymar", "Petro"};// Nombre de los trajadores
+        int[] sueldos= { 1000, 1200,1100,1300};// Sueldo de los trabajadores
         int suma =0;
         for(int sueldo: sueldo){
             suma += sueldo;
         }
-        double promedio = (double) suma/ sueldo.length;
+        double promedio = (double) suma/ sueldo.length; // Operacion para hallar el promedio 
         System.out.println("Sueldo promedio: "+ promedio);
         double diferenciaMinima= Double.MAX_VALUE; //Inicializamos con el valor posible 
         for(int sueldo: sueldo){
