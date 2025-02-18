@@ -193,5 +193,18 @@ class Ejercicio11 {
     }
     System.out.println();
 }
+// Ejercicio 12: Encontrar las pocisiobes de un numero en un arreglo
+public class Ejercicio12{
+    public static void main(String[]args){
+        int[]arreglo = { 4,6,8,2,6,9,6,1};
+        int numeroBuscado=6; // El numero que vamos a buscarm
+        System.out.print("Posiciones: ");
+        for(int i=0;)i< arreglo.length; i++){
+            if(arreglo[i]==numeroBuscado){
+                System.out.print((i+1)+"");
+            }
+        }
+    }
+}
 
 
