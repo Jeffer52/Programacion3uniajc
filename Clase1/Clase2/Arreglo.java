@@ -40,3 +40,26 @@ public class Ejercicio 3 {
     }
 
 }
+// Ejercicio 4 : Encontrar el mayor valor de dos arreglos 
+ public class Ejercicio 4 {
+        public static void main(String[]args){
+          int[] arregloA = { 23, 45, 12};
+          int[]arregloB = { 34,56,67}; // Encontramos el mayor valor en cada arreglo
+          int mayorA= encontrarMayor(arregloA);
+          int mayorB = encontrarMayor(arregloB); // Esto sirve para determinar el valor entre los arreglos
+          int mayor = Math.max(mayorA, mayorB);
+          System.out.println("Mayor valor: "+ mayor);
+        
+    }
+    public static int encontrarMayor(int[]arreglo){
+        int maximo = arreglo[0]; // Inicilizamos con el primer elemento del arreglo
+        for(int numero: arreglo)// Recorremos cada numero en el arreglo 
+         {
+            if (numero >maximo){
+                maximo = numero; //Si el numero actual es mayor que el maximos actual, lo actualizamos 
+            }
+        }
+        return maximo; // Devolver el valor maximo 
+    }
+ }
+ 
