@@ -22,3 +22,21 @@ public static void main(String[]args){
   }
 
 }
+// Ejercicio 3: Sumar pares e impares 
+public class Ejercicio 3 {
+    public static void main(String[]arg){
+        int[] numero = {1,2,3,4,5,6}
+        int sumaPares= 0, sumaImpares=0; // Variable para almacenar la suma de numeros pares e impares 
+        for(int numero: numero){ // Esto sirve para verificar si el numero es impar 
+            if (numero % 2 ==0){ 
+                sumaPares += numero;// Si es par, lo sumamos a sumaPares
+            }esle{
+                sumaImpares+= numeros; // Si es impar, lo sumamos a sumaImpares 
+            }
+        }
+
+        System.out.println("Suma pares: " + sumaPares);
+        System.ou.println("Suma impares: "+ sumaImpares)
+    }
+
+}
