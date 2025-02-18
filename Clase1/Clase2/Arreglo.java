@@ -206,5 +206,28 @@ public class Ejercicio12{
         }
     }
 }
+//Ejercicio 13: Separar numeros mayores y menores que la media de un arreglo
+public class static void main(String[]args){
+    int[]arreglo= {5,8,12,3,7,10};
+    double media=0;
+    for(int numero : arreglo){
+        media += numero;
+    }
+    media /= arreglo.length;// Calculamos la media dividiendo la suma por la cantidad de elementos
+    System.out.println("Media: "+ media);
+    System.out.print("Mayores que la media: ");
+    for(int numero: arreglo){
+        if(numero>media){
+            System.out.print(numero+"");
+        }
+    }
+    System.out.print("\nMenores que la media: ");
+    for(int numero: arreglo){
+        if(numero<media){
+            System.out.print(numero+"");
+    
+     }
+
+    }
 
 
