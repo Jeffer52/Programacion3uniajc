@@ -164,5 +164,34 @@ System.out.println(" Ganancias de vivienda" + (i+1)+ " : " + ganancias);
         }
     }
  }
+ //Ejercicio 11: Separar negativo, cero y positivo
+class Ejercicio11 {
+    public static void main(String[]args){
+        int[] A= {-3,-1,0,4,6,-2,0,9};
+        System.out.print("Negativo: ");
+        for(int numero: A){ //Recorremos cada numero en el arreglo
+        if(numero < 0){ //Si el numero es menor que 0, es negativo
+            System.out.print(numero + ""); 
+
+        }
+        System.out.println(); //Salto de linea para separar las secciones 
+
+        }
+        System.out.print("Cero: ");
+        for(int numero : A){
+            System.out.print(numero + " ");
+
+        }
+         System.out.println();
+    
+    }
+    System.out.print("Positivo: "); 
+    for(int numero: A){
+        if(numero > 0){
+            System.out.prin(numero + "");
+        }
+    }
+    System.out.println();
+}
 
 
