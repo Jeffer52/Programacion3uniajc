@@ -62,4 +62,16 @@ public class Ejercicio 3 {
         return maximo; // Devolver el valor maximo 
     }
  }
- 
+ // Ejercicio 5 : Total gastado en producto
+ public class Ejercicio5{
+    public static void main(String []args){
+        int[] precios = { 10, 20, 30};
+        int[] cantidades = {2,3,1};
+        int total = 0;// Variable para almacenar el total gastado
+        fo( int i=0; i<precios.length; i++){ // Esto sirve para recorrer los arreglos para calcular el total gastado 
+            total += precios[i]*cantidades[i]; // Sumamos el precio multiplicado por cantidades 
+        }
+        System.out.println("Total gastado: "+ total);
+    }
+ }
+
