@@ -56,9 +56,8 @@ private static void crearPelicula(Cine cine, Scanner scanner) { //Crea una pelic
 
         Pelicula pelicula = new Pelicula(nombre, idioma, tipo, duracion);//Crea un nuevo objeto Pelicula utilizando el constructor de la clase Pelicula, pasando los valores ingresados por el usuario como argumentos.
         cine.agregarPelicula(pelicula); //Llama al método agregarPelicula del objeto cine para agregar la película recién creada a la lista de películas del cine.
-        System.out.println("Película creada con éxito.");
-    }
-
+        System.out.println("Película creada con éxito.");
+}
 
     private static void asignarFuncion(Cine cine, Scanner scanner) {
         // Lógica para asignar una función
@@ -183,3 +182,5 @@ private static void crearPelicula(Cine cine, Scanner scanner) { //Crea una pelic
         System.out.println("Total a pagar: $" + venta.calcularTotal());
     
     }
+
+}
