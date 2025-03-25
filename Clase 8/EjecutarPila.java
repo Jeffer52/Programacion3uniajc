@@ -18,7 +18,15 @@ public class EjecutarPila {
            //Imprimir la pila
            System.out.println(nombres);
 
-           
+           //Mostrar quien esta enn elm tope de la pila(sin remover)
+           System.out.println(nombres.peek()); // Daniela
+
+           //Buscar un elemento dentron de la lista 
+            System.out.println(nombres.pop()); 
+
+            //Imprimir la pila
+            System.out.println(nombres); //[Pedrp,Juan, Maria, camiola]
+
 
 
 
