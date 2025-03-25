@@ -18,6 +18,10 @@ public class EjecutarPila {
            //Imprimir la pila
            System.out.println(nombres);
 
+           
+
+
+
 
         }
     }
