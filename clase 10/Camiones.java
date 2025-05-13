@@ -4,7 +4,7 @@ public class EmisionesCO2 {
 
         // Factores de emisión de CO₂ por tipo de combustible (kg por vehículo)
         double gasolina = 2.31;
-        double diesel = 2.68;
+        double diesel = 2.69;
         double gas = 2.75;
 
         // Camiones Livianos - 400000 vehículos
