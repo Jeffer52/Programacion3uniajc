@@ -60,17 +60,22 @@ public class RutaUniversidades {
         System.out.print(nombreNodo(nodoActual) + " ");
     }
 
-    private static String nombreNodo(int i) {
-        return switch (i) {
-            case 0 -> "Sur";
-            case 1 -> "P2";
-            case 2 -> "P3";
-            case 3 -> "P4";
-            case 4 -> "N";
-            default -> "Desconocido";
-        };
+private static String nombreNodo(int i) {
+    switch (i) {
+        case 0:
+            return "Sur";
+        case 1:
+            return "P2";
+        case 2:
+            return "P3";
+        case 3:
+            return "P4";
+        case 4:
+            return "N";
+        default:
+            return "Desconocido";
     }
-
+}
     public static void main(String[] args) {
         int[][] grafo = {
             {0, 7, 0, 0, 0}, // Sur
@@ -78,6 +83,7 @@ public class RutaUniversidades {
             {0, 1, 0, 2, 3}, // P3
             {0, 6, 2, 0, 4}, // P4
             {0, 0, 3, 4, 0}  // N
+            
         };
 
         int nodoInicio = 0; // Sur
