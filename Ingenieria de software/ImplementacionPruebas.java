@@ -1,68 +1,95 @@
-import java.util.*;
-import java.sql.Time;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+// Clase Sala
+class Sala {
+    private int idSala;
+    private int capacidad;
+
+    public Sala(int idSala, int capacidad) {
+        this.idSala = idSala;
+        this.capacidad = capacidad;
+    }
+
+    public boolean estaDisponible() {
+        // Lógica para verificar disponibilidad (puede consultar BD)
+        return true; // Placeholder
+    }
+
+    // Getters y Setters
+    public int getIdSala() { return idSala; }
+    public int getCapacidad() { return capacidad; }
+    public void setCapacidad(int capacidad) { this.capacidad = capacidad; }
+}
+
+// Clase Docente
 class Docente {
-    private int id_docente;
+    private int idDocente;
     private String nombre;
     private String preferenciasNotificacion;
 
-    public Docente(int id_docente, String nombre, String preferenciasNotificacion) {
-        this.id_docente = id_docente;
+    public Docente(int idDocente, String nombre, String preferenciasNotificacion) {
+        this.idDocente = idDocente;
         this.nombre = nombre;
         this.preferenciasNotificacion = preferenciasNotificacion;
     }
 
     public void configurarNotificacion() {
-        System.out.println("Configurando notificaciones para " + nombre);
+        System.out.println("Notificación configurada para " + nombre);
     }
 
-    public void recibirNotificacion(String mensaje) {
-        System.out.println("Notificación para " + nombre + ": " + mensaje);
-    }
-}
-
-class Sala {
-    private int id_sala;
-    private int capacidad;
-
-    public Sala(int id_sala, int capacidad) {
-        this.id_sala = id_sala;
-        this.capacidad = capacidad;
+    public void recibirNotificacion() {
+        System.out.println(nombre + " recibió una notificación");
     }
 
-    public boolean estaDisponible() {
-        return true; // Aquí iría la lógica real
+    // Getters y Setters
+    public int getIdDocente() { return idDocente; }
+    public String getNombre() { return nombre; }
+    public String getPreferenciasNotificacion() { return preferenciasNotificacion; }
+    public void setPreferenciasNotificacion(String preferenciasNotificacion) {
+        this.preferenciasNotificacion = preferenciasNotificacion;
     }
 }
 
+// Clase Notificacion
 class Notificacion {
-    private String tipo;
+    private String tipoMensaje;
     private String mensaje;
-    private Date fechaEnvio;
+    private LocalDateTime fechaEnvio;
     private boolean leida;
 
-    public Notificacion(String tipo, String mensaje) {
-        this.tipo = tipo;
+    public Notificacion(String tipoMensaje, String mensaje, LocalDateTime fechaEnvio) {
+        this.tipoMensaje = tipoMensaje;
         this.mensaje = mensaje;
-        this.fechaEnvio = new Date();
+        this.fechaEnvio = fechaEnvio;
         this.leida = false;
     }
 
     public void marcarComoLeida() {
         this.leida = true;
+        System.out.println("Notificación marcada como leída");
     }
+
+    // Getters y Setters
+    public String getTipoMensaje() { return tipoMensaje; }
+    public String getMensaje() { return mensaje; }
+    public LocalDateTime getFechaEnvio() { return fechaEnvio; }
+    public boolean isLeida() { return leida; }
 }
 
+// Clase Horario
 class Horario {
-    private int id_Horario;
+    private int idHorario;
     private Sala sala;
     private Docente docente;
-    private Time horaInicio;
-    private Time horaFin;
+    private LocalDateTime horaInicio;
+    private LocalDateTime horaFin;
     private String estado;
 
-    public Horario(int id_Horario, Sala sala, Docente docente, Time horaInicio, Time horaFin, String estado) {
-        this.id_Horario = id_Horario;
+    public Horario(int idHorario, Sala sala, Docente docente, LocalDateTime horaInicio, 
+                   LocalDateTime horaFin, String estado) {
+        this.idHorario = idHorario;
         this.sala = sala;
         this.docente = docente;
         this.horaInicio = horaInicio;
@@ -71,14 +98,70 @@ class Horario {
     }
 
     public boolean estaDisponible() {
-        return "disponible".equalsIgnoreCase(estado) && sala.estaDisponible();
+        return sala.estaDisponible() && !estado.equals("inactivo");
     }
 
-    public int getIdHorario() {
-        return id_Horario;
+    // Getters y Setters
+    public int getIdHorario() { return idHorario; }
+    public Sala getSala() { return sala; }
+    public Docente getDocente() { return docente; }
+    public LocalDateTime getHoraInicio() { return horaInicio; }
+    public LocalDateTime getHoraFin() { return horaFin; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+}
+
+// Clase Sistema
+class Sistema {
+    private List<Horario> horarios;
+    private List<Docente> docentes;
+    private List<Notificacion> notificaciones;
+
+    public Sistema() {
+        this.horarios = new ArrayList<>();
+        this.docentes = new ArrayList<>();
+        this.notificaciones = new ArrayList<>();
+    }
+
+    public List<Horario> obtenerHorarios() {
+        return horarios; // Simula consulta a BD
+    }
+
+    public boolean agendarHorario(Horario horario) {
+        if (horario.estaDisponible()) {
+            horarios.add(horario);
+            notificarCambio(horario);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean eliminarHorario(int idHorario) {
+        Horario toRemove = horarios.stream()
+            .filter(h -> h.getIdHorario() == idHorario)
+            .findFirst().orElse(null);
+        if (toRemove != null) {
+            horarios.remove(toRemove);
+            notificarCambio(toRemove);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean buscarDisponibilidad() {
+        return true; // Placeholder
+    }
+
+    public void notificarCambio(Horario horario) {
+        Notificacion notif = new Notificacion("cambio", 
+            "Horario modificado para " + horario.getDocente().getNombre(), 
+            LocalDateTime.now());
+        notificaciones.add(notif);
+        horario.getDocente().recibirNotificacion();
     }
 }
 
+// Clase Administrador
 class Administrador {
     private String nombre;
     private int id;
@@ -91,58 +174,41 @@ class Administrador {
     }
 
     public void solicitarExportarHorarios() {
-        System.out.println("Exportando horarios...");
+        System.out.println("Exportando horarios para " + nombre);
     }
 
-    public boolean aplicarFiltro() {
-        return true;
+    public boolean aplicarFiltros() {
+        return true; // Placeholder
     }
 
-    public boolean editarHorario() {
-        return true;
+    public boolean editarHorario(Horario horario) {
+        return true; // Placeholder
     }
 
-    public boolean eliminarHorario() {
-        return true;
+    public boolean eliminarHorario(int idHorario, Sistema sistema) {
+        return sistema.eliminarHorario(idHorario);
     }
 }
 
-class Sistema {
-    private List<Horario> horarios = new ArrayList<>();
-    private List<Docente> docentes = new ArrayList<>();
-    private List<Sala> salas = new ArrayList<>();
-    private List<Notificacion> notificaciones = new ArrayList<>();
+// Clase Principal para Pruebas
+public class ScheduleManagementSystem {
+    public static void main(String[] args) {
+        Sistema sistema = new Sistema();
+        Sala sala = new Sala(1, 30);
+        Docente docente = new Docente(1, "Juan Pérez", "email");
+        Horario horario = new Horario(1, sala, docente, LocalDateTime.now(), 
+            LocalDateTime.now().plusHours(2), "activo");
+        Administrador admin = new Administrador("Admin1", 1, "admin@inst.edu");
 
-    public List<Horario> obtenerHorarios() {
-        return horarios;
-    }
+        // Prueba de agendamiento
+        sistema.agendarHorario(horario);
+        System.out.println("Horarios: " + sistema.obtenerHorarios().size());
 
-    public boolean agendarHorario(Horario nuevo) {
-        horarios.add(nuevo);
-        return true;
-    }
+        // Prueba de eliminación
+        admin.eliminarHorario(1, sistema);
+        System.out.println("Horarios tras eliminar: " + sistema.obtenerHorarios().size());
 
-    public boolean editarHorario(int id, Horario actualizado) {
-        for (int i = 0; i < horarios.size(); i++) {
-            if (horarios.get(i).getIdHorario() == id) {
-                horarios.set(i, actualizado);
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean eliminarHorario(int id) {
-        return horarios.removeIf(h -> h.getIdHorario() == id);
-    }
-
-    public boolean buscarDisponibilidad(Horario horario) {
-        return horario.estaDisponible();
-    }
-
-    public void notificarCambio(String mensaje) {
-        for (Docente docente : docentes) {
-            docente.recibirNotificacion(mensaje);
-        }
+        // Prueba de exportación
+        admin.solicitarExportarHorarios();
     }
 }

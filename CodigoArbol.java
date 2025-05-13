@@ -1,5 +1,5 @@
 // Clase que representa un nodo del árbol
-class Nodo {
+class Nodo { 
     int valor;
     Nodo izquierdo;
     Nodo derecho;
