@@ -10,7 +10,7 @@ public class EmisionesCO2 {
         // Camiones Livianos - 400000 vehículos
         int livianos = 400000;
         System.out.println("Camiones Livianos:");
-        calcularEmisiones(livianos, 30, 40, 30, gasolina, diesel, gas);
+        calcularEmisiones(livianos, 30, 40, 31, gasolina, diesel, gas);
 
         // Camiones Medianos - 280000 vehículos
         int medianos = 280000;
